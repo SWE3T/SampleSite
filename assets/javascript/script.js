@@ -76,19 +76,3 @@ function pizzaSize(){
       lista[i].checked = false;
   document.getElementById("numSabores").innerText = 0;    
 }
-
-
-//Barra de navegação grudada no topo do site durante o scroll.
-document.addEventListener('DOMContentLoaded', function() {
-    window.addEventListener('scroll', stickScrool);
-    var navbar = document.getElementById("navbar");
-    var sticky = navbar.offsetTop;
-   
-    function stickScrool() {
-      if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky")
-      } else {
-        navbar.classList.remove("sticky");
-      }
-    }
-  })

@@ -29,6 +29,8 @@ nav{
     background-color: whitesmoke;
     text-align: center;
     display: block;
+    position: sticky;
+    top: 0px;
 }
 
 nav ul li{
@@ -271,16 +273,6 @@ a:hover{
 .header {
     padding: 10px 16px;
     background: whitesmoke;
-}
-  
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%
-}
-
-.sticky + .content {
-    padding-top: 102px;
 }
 
 

@@ -22,12 +22,14 @@
         <p id="slogan">Deliziosa! meravigliosa! l'a vera tradizione</p>
         <span id="menu" onclick="showMenu()">&equiv; Menu</span>
     </header>
-    <nav class = "resnavbar" id="navbar">
+    <nav class = "navbar">
         <ul>
-            <li>Tele-entrega? <a href="precos.html">veja nossos preços!</a></li>
-            <li>Descubra quem <a href="quemSomos.html">somos nós!</a></li>
-            <li>Entre em <a href="contato.html">contato conosco!</a></li>
-            <li>Já decidiu o que quer? <a href="pedido.html"> Faça seu pedido!</a></li>
+            <li><a href="index.php">Início</a></li>
+            <li><a href="index.php?action=quemsomos">Quem somos</a></li>
+            <li><a href="index.php?action=precos">Preços</a></li>
+            <li><a href="index.php?action=pedido">Faça seu pedido</a></li>
+            <li><a href="index.php?action=cliente">Área do cliente</a></li>
+            <li><a href="index.php?action=contato">Contato</a></li>
         </ul>
         <hr>    
     </nav>
