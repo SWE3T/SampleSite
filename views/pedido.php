@@ -38,7 +38,7 @@
                     <label>
                         <input type="checkbox" name="sabores[]" value="<?=$sabor->getCodigo()?>" onchange="updateCount()">
                         <div class="sabor_img">
-                            <img src="assets/images/<?=$sabor->getNomeImagem()?>" alt="<?=$sabor->getNome()?>">
+                            <img src="assets/img/<?=$sabor->getNomeImagem()?>" alt="<?=$sabor->getNome()?>">
                         </div>
                         <div class="sabor_descricao">
                             <strong><?=$sabor->getNome()?></strong>
