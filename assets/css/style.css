@@ -141,6 +141,9 @@ a:hover{
     display: none;
 }
 
+#opcoes_pedido {
+    display: none;
+}
 
 /* Formatação de Classes */
 .open-button {

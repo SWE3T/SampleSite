@@ -3,11 +3,10 @@
 <form action="index.php?acao=addCarrinho" method="post" onsubmit="return addToCart()">
     <label for="tamanho">Selecione o tamanho da pizza:</label>
     <select name="tamanho" id="tamanho" onchange="selectPizzaSize()">
-        <option value="">---- Selecione ----</option>
-        <option value="b">Broto</option>
-        <option value="p">Pequena</option>
-        <option value="m">Média</option>
-        <option value="g">Grande</option>
+        <option value="">Opções</option>
+        <option value="b">Piccola</option>
+        <option value="m">Media</option>
+        <option value="g">Grandi</option>
         <option value="gg">Gigante</option>
     </select>
     <br>
