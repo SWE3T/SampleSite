@@ -1,7 +1,6 @@
-  
 <h2>Faça seu pedido</h2>
 <hr>
-<form action="carrinho.php" method="post" onsubmit="return addToCart()">
+<form action="index.php?acao=addCarrinho" method="post" onsubmit="return addToCart()">
     <label for="tamanho">Selecione o tamanho da pizza:</label>
     <select name="tamanho" id="tamanho" onchange="selectPizzaSize()">
         <option value="">---- Selecione ----</option>
@@ -25,7 +24,7 @@
             // mysqli_close($conexao);            
             // while($array = mysqli_fetch_assoc($resultado)){ // para cada sabor
 
-            require_once "classes/SaborDAO.php";
+            require_once "classes/saborDAO.php";
             $obj = new SaborDAO();
             $lista = $obj->listar(); 
             if(count($lista) == 0){
@@ -36,7 +35,7 @@
                 ?>            
                 <div class="sabor">
                     <label>
-                        <input type="checkbox" name="sabores[]" value="<?=$sabor->getCodigo()?>" onchange="updateCount()">
+                        <input type="checkbox" name="sabores[]" value="<?=$sabor->getCodigo()."-".$sabor->getNome()?>" onchange="updateCount()">
                         <div class="sabor_img">
                             <img src="assets/img/<?=$sabor->getNomeImagem()?>" alt="<?=$sabor->getNome()?>">
                         </div>
@@ -53,10 +52,10 @@
         <br><br>
         <fieldset>
             <legend>Selecione a opção de borda:</legend>
-            <label><input type="radio" name="borda" value="" checked>Sem borda</label><br>
-            <label><input type="radio" name="borda" value="">Catupiry</label><br>
-            <label><input type="radio" name="borda" value="">Cheddar</label><br>
-            <label><input type="radio" name="borda" value="">Chocolate</label><br>
+            <label><input type="radio" name="borda" value="Sem borda" checked>Sem borda</label><br>
+            <label><input type="radio" name="borda" value="Catupiry">Catupiry</label><br>
+            <label><input type="radio" name="borda" value="Cheddar">Cheddar</label><br>
+            <label><input type="radio" name="borda" value="Chocolate">Chocolate</label><br>
         </fieldset>
         <br><br>
         <input type="submit" value="Adicionar ao carrinho" name="adicionar">
