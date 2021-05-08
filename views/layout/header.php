@@ -18,7 +18,7 @@
 
 <body>
     <header>
-        <a href="index.html"><p id="typo"><img src="assets/img/logo.png" alt="Mamaamia!" style="width: 35px; min-width: 30px;"></a> Pizzaria Mamaamia!</p>
+        <a href="index.php"><p id="typo"><img src="assets/img/logo.png" alt="Mamaamia!" style="width: 35px; min-width: 30px;"></a> Pizzaria Mamaamia!</p>
         <p id="slogan">Deliziosa! meravigliosa! l'a vera tradizione</p>
         <span id="menu" onclick="showMenu()">&equiv; Menu</span>
     </header>

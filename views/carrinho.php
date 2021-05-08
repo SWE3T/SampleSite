@@ -26,7 +26,7 @@
                     <td>".$item->getListaSabores()."</td>
                     <td>".$item->getBorda()."</td>
                     <td>R$ ".$item->getPreco()."</td>
-                    <td><a href='index.php?acao=delCarrinho&indice=$indice'>excluir</a></td>
+                    <td><a href='index.php?action=delCarrinho&indice=$indice'>excluir</a></td>
                 </tr>"; 
         }
         ?>

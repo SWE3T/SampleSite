@@ -3,32 +3,32 @@ include_once("views/layout/header.php");
 ?>   
     <main>
     <?php
-    if(isset($_GET['acao'])){
-        if($_GET['acao'] == "cadastro"){
+    if(isset($_GET['action'])){
+        if($_GET['action'] == "cadastro"){
             // logica para cadastro (semelhante ao clienteController)
             include_once("views/cadastro.php");          
         }
-        elseif($_GET['acao'] == "login"){
+        elseif($_GET['action'] == "login"){
            include_once "classes/ClienteDAO.php";
            $bd = new ClienteDAO();
            if($resultado = $bd->acessar($_POST['field_email'], $_POST['field_senha'])){
                 $_SESSION['logado'] = true;
                 $_SESSION['cliente'] = $resultado->getNome();
                 $_SESSION['codigo'] = $resultado->getCodigo();
-                header("Location: index.php?acao=minhaconta");
+                header("Location: index.php?action=minhaconta");
            }
            else{ // casos em que o método acessar retornou false
-               header("Location: index.php?acao=cliente&erro=1");
+               header("Location: index.php?action=cliente&erro=1");
            }
         }
-        elseif($_GET['acao'] == "sair"){
+        elseif($_GET['action'] == "sair"){
             session_destroy();
-            header("Location: index.php?acao=cliente");
+            header("Location: index.php?action=cliente");
         }
-        elseif($_GET['acao'] == "cliente" && isset($_SESSION['logado'])){
-            header("Location: index.php?acao=minhaconta"); // se ja está logado, redireciona para minhaconta
+        elseif($_GET['action'] == "cliente" && isset($_SESSION['logado'])){
+            header("Location: index.php?action=minhaconta"); // se ja está logado, redireciona para minhaconta
         } 
-        elseif($_GET['acao'] == "addCarrinho"){
+        elseif($_GET['action'] == "addCarrinho"){
             include_once("classes/Pizza.php");
             $p = new Pizza();
             $p->setTamanho($_POST['tamanho']);
@@ -39,14 +39,14 @@ include_once("views/layout/header.php");
             $p->setSabores($escolhidos);
             $p->setBorda($_POST['borda']);
             $_SESSION['cart'][] = serialize($p);
-            header("Location: index.php?acao=carrinho");
+            header("Location: index.php?action=carrinho");
         }
-        elseif($_GET['acao'] == "delCarrinho"){
+        elseif($_GET['action'] == "delCarrinho"){
             unset($_SESSION['cart'][$_GET['indice']]);
-            header("Location: index.php?acao=carrinho");
+            header("Location: index.php?action=carrinho");
         }
         else{
-            include_once("views/{$_GET['acao']}.php"); // inclui genericamente as demais views
+            include_once("views/{$_GET['action']}.php"); // inclui genericamente as demais views
         }
     }
     else{

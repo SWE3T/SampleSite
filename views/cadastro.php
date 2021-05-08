@@ -1,6 +1,25 @@
+<div class="erro_cadastro">
+        <?php
+        if (isset($erros) && count($erros) != 0) {
+            echo "<ul>";
+            foreach ($erros as $e)
+                echo "<li>$e</li>";
+            echo "</ul>";
+        }
+
+        $nome = isset($_POST['name_field']) ? $_POST['field_nome'] : "";
+        $email = isset($_POST['field_email']) ? $_POST['field_email'] : "";
+        $tel = isset($_POST['phone_field']) ? $_POST['field_tel'] : "";
+        $data = isset($_POST['date_field']) ? $_POST['field_dn'] : "";
+        $end = isset($_POST['adress_field']) ? $_POST['field_endereco'] : "";
+        $bairro = isset($_POST['field_bairro']) ? $_POST['field_bairro'] : "";
+        
+        ?>
+    </div>
+
 <div class="formCad">
         <h2>Crie sua conta!</h2>
-        <form method="POST" action="">
+        <form method="POST" action="?action=cadastro">
 
             <label for="name">Nome:</label>
             <input type="text" name="name_field" size="37" maxlength="50" placeholder="nome completo" id="name" required autofocus autocomplete="off">
@@ -33,6 +52,6 @@
                 </select>
             </div>
             <input type="reset" value="Limpar campos">
-            <input type="submit" value="Criar conta" onclick="signup()">
+            <input type="submit" name="cadastrar" value="Criar conta">
         </form>
     </div>

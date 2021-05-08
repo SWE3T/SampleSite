@@ -1,5 +1,5 @@
 <?php
-    class Sabor{
+    class sabor{
 
         // atributos
         private $codigo;

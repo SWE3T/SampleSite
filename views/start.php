@@ -12,7 +12,7 @@
             <input type="reset" value="Limpar campos">
             <input type="submit" value="Acessar" onclick="login()">
         </form>
-        <a href="cadastro.html">Crie sua conta!</a>
+        <a href="index.php?action=cadastro">Crie sua conta!</a>
     </div>
 
 <aside>

@@ -22,53 +22,6 @@ function showMenu() {
     menu.style.display = 'block';
 }
 
-function login() {
-  var email = document.getElementById("id_email").value;
-  var password = document.getElementById("password").value;
-  if (email == "") {
-    alert("Insira o seu e-mail!");
-  }
-  else if (password == "") {
-    alert("Insira a sua senha!");
-  }
-  else {
-    alert("*Procurando na Banco de Dados se o usuário existe...");
-  }
-}
-
-function signup() {
-  var pass = document.getElementById("password").value
-  var conf = document.getElementById("confirm").value
-  var name = document.getElementById("name").value
-  var email = document.getElementById("email").value
-  var date = document.getElementById("date").value
-  var adress = document.getElementById("adress").value
-
-  if (pass != conf) {
-    alert("A senha inserida não foi confirmada corretamente!")
-  }
-  else if (name == "") {
-    alert("Insira o seu nome!");
-  }
-  else if (email == "") {
-    alert("Insira o seu e-mail!");
-  }
-  else if (date == "") {
-    alert("Insira sua data de nascimento!");
-  }
-  else if (adress == "") {
-    alert("Insira o seu e-mail!");
-  }
-  else if (pass == "") {
-    alert("Insira uma senha!");
-  }
-  else if (conf == "") {
-    alert("Confirme sua senha!");
-  }
-  else {
-    alert("*Cadastrando usuário no Banco de Dados...");
-  }
-}
 
 function pizzaSize() {
   currentSize = document.getElementById("tamanho").value;

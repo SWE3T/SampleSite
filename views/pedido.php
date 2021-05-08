@@ -1,10 +1,10 @@
 <h2>Faça seu pedido</h2>
 <hr>
-<form action="index.php?acao=addCarrinho" method="post" onsubmit="return addToCart()">
+<form action="index.php?action=addCarrinho" method="post" onsubmit="return addToCart()">
     <label for="tamanho">Selecione o tamanho da pizza:</label>
     <select name="tamanho" id="tamanho" onchange="selectPizzaSize()">
         <option value="">Opções</option>
-        <option value="b">Piccola</option>
+        <option value="p">Piccola</option>
         <option value="m">Media</option>
         <option value="g">Grandi</option>
         <option value="gg">Gigante</option>
@@ -59,7 +59,7 @@
         <br><br>
         <input type="submit" value="Adicionar ao carrinho" name="adicionar">
         <?php
-        } // fecha elses
+        } 
         ?>
     </div>
 </form>

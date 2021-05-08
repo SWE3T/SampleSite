@@ -7,6 +7,6 @@
     }
     else{
         echo "<p>É necessário se identificar. Acesse a página de <a href
-        ='index.php?acao=cliente'>login</a></p>"; 
+        ='index.php?action=cliente'>login</a></p>"; 
     }
 ?>
