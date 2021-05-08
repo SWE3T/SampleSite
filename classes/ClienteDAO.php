@@ -1,5 +1,5 @@
 <?php
-    require_once "conetion.php";
+    require_once "conection.php";
     require_once "Cliente.php";
 
     class ClienteDAO{
@@ -7,7 +7,7 @@
         public $conexao;
 
         public function __construct(){
-            $this->conexao = Conexao::conecta();
+            $this->conexao = conection::conect();
         }
 
         public function acessar($email, $senha){
