@@ -1,31 +1,32 @@
-*{
+* {
     box-sizing: border-box;
 }
 
-table{
+table {
     margin-left: auto;
     margin-right: auto;
 }
-tbody{
+
+tbody {
     float: left;
     left: 50%;
 }
 
-header, footer, nav, aside{
+header, footer, nav, aside {
     padding: 3px;
 }
 
-header{
+header {
     background-color: whitesmoke;
     text-align: center;
     font-size: xx-large;
 }
 
-body{
+body {
     margin: 0;
 }
 
-nav{
+nav {
     background-color: whitesmoke;
     text-align: center;
     display: block;
@@ -33,15 +34,15 @@ nav{
     top: 0px;
 }
 
-nav ul li{
-    display: inline;   
-    padding: 1px 45px 1px 45px; 
+nav ul li {
+    display: inline;
+    padding: 1px 45px 1px 45px;
     text-transform: uppercase;
     font-family: 'Courier Prime', monospace;
     font-weight: 700;
 }
 
-footer{
+footer {
     position: fixed;
     left: 0;
     bottom: 0;
@@ -55,12 +56,12 @@ p {
     margin: 0;
 }
 
-ul{
+ul {
     margin: 0;
     margin-top: 2em;
 }
 
-aside{
+aside {
     background-image: url("../img/vetorPizzas.jpg");
     background-size: cover;
     float: right;
@@ -70,74 +71,75 @@ aside{
     font-family: 'Courier Prime', monospace;
     font-weight: 700;
     font-size: xx-large;
-    text-shadow: 3px 3px  blueviolet;
+    text-shadow: 3px 3px blueviolet;
     color: violet;
 }
 
-div article{
+div article {
     padding-left: 10%;
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
 }
-div h3{
+
+div h3 {
     font-family: 'Courier Prime', monospace;
     font-weight: 700;
 }
 
-
 /* tratamento de links */
-a{
-    color:rgb(241, 101, 124)
+
+a {
+    color: rgb(241, 101, 124)
 }
 
-a:link{
+a:link {
     text-decoration: dashed;
     color: blueviolet;
 }
 
-a:active{
+a:active {
     color: pink;
 }
 
-a:visited{
+a:visited {
     text-decoration: dashed;
     color: violet;
 }
 
-a:hover{
+a:hover {
     color: crimson;
 }
 
-
 /* Formatação dos ID'S */
-#slogan{
+
+#slogan {
     font-family: 'Beth Ellen', cursive;
     font-weight: 400;
     font-size: medium;
 }
 
-#typo{
+#typo {
     font-family: 'Courier Prime', monospace;
     font-weight: 700;
     font-size: xx-large;
     padding: 0;
 }
 
-#map{
+#map {
     width: 100%;
     height: 600px;
     border: none;
     margin: none;
 }
 
-#lista_sabores{
+#lista_sabores {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     flex-wrap: wrap;
-} 
+}
 
-#menu{
+#menu {
     display: none;
 }
 
@@ -146,26 +148,28 @@ a:hover{
 }
 
 /* Formatação de Classes */
+
 .open-button {
-  background-color: #555;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 280px;
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
 }
 
 .form-popup {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  right: 15px;
-  z-index: 9;
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    z-index: 9;
 }
+
 .chat-popup {
     display: none;
     position: fixed;
@@ -173,102 +177,103 @@ a:hover{
     right: 15px;
     border: 3px solid #f1f1f1;
     z-index: 9;
-  }
+}
 
 .form-container {
-  max-width: 300px;
-  padding: 10px;
-  background-color: whitesmoke;
+    max-width: 300px;
+    padding: 10px;
+    background-color: whitesmoke;
 }
 
 .form-container textarea {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
-  resize: none;
-  min-height: 200px;
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    resize: none;
+    min-height: 200px;
 }
 
 .form-container textarea:focus {
-  background-color: #ddd;
-  outline: none;
+    background-color: #ddd;
+    outline: none;
 }
 
 .form-container .btn {
-  background-color: springgreen;
-  color: black;
-  font-family: 'Courier Prime', monospace;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
+    background-color: springgreen;
+    color: black;
+    font-family: 'Courier Prime', monospace;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
 }
 
 .form-container .cancel {
-  background-color: lavenderblush;
+    background-color: lavenderblush;
 }
 
 .form-container .btn:hover, .open-button:hover {
-  opacity: 1;
+    opacity: 1;
 }
 
-.forms{
+.forms {
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
 }
 
-.formCad{
+.formCad {
     text-align: right;
     padding-right: 50em;
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
 }
 
-.table{
+.table {
     padding: 2em;
+    margin-top: 8%;
     text-align: center;
     background-color: whitesmoke;
     font-family: 'Courier Prime', monospace;
     border-style: dotted;
 }
 
-.sabor{
-	width: 400px;
-	min-height: 100px;
-	padding: 5px;
-	background-color: #eeeeee;
-	border: 1px solid #cccccc;
-	margin: 5px;
-	transition: 0.5s;
+.sabor {
+    width: 400px;
+    min-height: 100px;
+    padding: 5px;
+    background-color: #eeeeee;
+    border: 1px solid #cccccc;
+    margin: 5px;
+    transition: 0.5s;
 }
 
-.sabor:hover{
-	box-shadow: 3px 3px 10px whitesmoke;
-	transition: 0.5s;
+.sabor:hover {
+    box-shadow: 3px 3px 10px whitesmoke;
+    transition: 0.5s;
 }
 
-.sabor img{
-	width: 80px;
-	border-radius: 40px;
-	margin: 0 20px 0 20px;
+.sabor img {
+    width: 80px;
+    border-radius: 40px;
+    margin: 0 20px 0 20px;
 }
 
-.sabor label{
-	display: flex;
-	align-items: center;
+.sabor label {
+    display: flex;
+    align-items: center;
 }
 
-.sabor_descricao{
-	display: flex;
-	flex-direction: column;
+.sabor_descricao {
+    display: flex;
+    flex-direction: column;
 }
 
-.pedido{
+.pedido {
     padding: 2em;
     font-family: 'Courier Prime', monospace;
 }
@@ -278,48 +283,44 @@ a:hover{
     background: whitesmoke;
 }
 
-
 @media screen and (max-width: 900px) {
     nav ul li {
         display: block;
         margin-top: 0;
     }
-    ul{
+    ul {
         margin-top: 0;
     }
-    
-    nav  {
+    nav {
         display: none;
     }
-    
-    #menu{
+    #menu {
         color: black;
         border: 1px solid white;
         padding: 5px;
         display: block;
         font-family: 'Courier Prime', monospace;
-        font-size:medium;
+        font-size: medium;
     }
-
-    #hideAside{
-        display: none;
+    aside {
+        display: block;
+        position: absolute;
+        right: 50%;
+        transform: translate(50%, 0px);
+        margin-top: 5%;
     }
-
-    .formCad{
+    .formCad {
         padding: 0 1em 0 0;
         font-weight: 400;
     }
     .topnav {
-      float: right;
-      display: block;
+        float: right;
+        display: block;
     }
-    footer{
+    footer {
         display: none;
     }
-    .open-button{
+    .open-button {
         display: none;
     }
-  }
-
-  
- 
+}
