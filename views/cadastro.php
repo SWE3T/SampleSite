@@ -7,13 +7,6 @@
             echo "</ul>";
         }
 
-        $nome = isset($_POST['name_field']) ? $_POST['field_nome'] : "";
-        $email = isset($_POST['field_email']) ? $_POST['field_email'] : "";
-        $tel = isset($_POST['phone_field']) ? $_POST['field_tel'] : "";
-        $data = isset($_POST['date_field']) ? $_POST['field_dn'] : "";
-        $end = isset($_POST['adress_field']) ? $_POST['field_endereco'] : "";
-        $bairro = isset($_POST['field_bairro']) ? $_POST['field_bairro'] : "";
-        
         ?>
     </div>
 
@@ -29,7 +22,7 @@
             <br>
             <label for="password">Senha:<input type="password" name="password_field" size="37" maxlength="45" placeholder="senha" id="password" required></label>
             <br>
-            <label for="confirm">Confirme a senha:<input type="password" name="password_field" size="37" maxlength="45" placeholder="senha" id="confirm" required></label>
+            <label for="confirm">Confirme a senha:<input type="password" name="confirm_password_field" size="37" maxlength="45" placeholder="senha" id="confirm" required></label>
             <br>
             <label for="adress">Endereço:</label> <input type="text" name="adress_field" size="37" maxlength="50" placeholder="Rua, Número, Complemento" id="adress" required>
             <br>
