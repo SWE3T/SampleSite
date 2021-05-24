@@ -15,13 +15,14 @@ class ClienteDAO
     public function cadastrar(Cliente $cliente)
     {
         try {
-            $query = $this->conexao->prepare("INSERT INTO cliente values (NULL, :n, :e, NULL, :dt, :s, :en, :ba, NULL, NULL, NULL, NULL);");
+            $query = $this->conexao->prepare("INSERT INTO cliente values (NULL, :n, :e, :p, :dt, :s, :en, :ba, NULL, NULL, NULL, NULL);");
             $query->bindValue(":n", $cliente->getNome());
             $query->bindValue(":e", $cliente->getEmail());
             $query->bindValue(":dt", $cliente->getDataNascimento());
             $query->bindValue(":s", $cliente->getSenha());
             $query->bindValue(":en", $cliente->getEndereco());
             $query->bindValue(":ba", $cliente->getBairro());
+            $query->bindValue(":p", $cliente->getTelefone());
             return $query->execute();
         } catch (PDOException $e) {
             echo "Erro no acesso aos dados: " . $e->getMessage();
