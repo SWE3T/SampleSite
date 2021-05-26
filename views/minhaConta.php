@@ -1,5 +1,5 @@
 <h2>Área do Cliente</h2>
-<a href='index.php?action=sair'>sair</a>
+<a href='index.php?action=sair'>Desconectar</a>
 <hr>
 <?php
     if(($_SESSION['logado']==true)){

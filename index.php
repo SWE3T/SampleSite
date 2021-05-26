@@ -83,6 +83,7 @@ session_start();
               }
             }
         } elseif ($_GET['action'] == "sair") {
+            session_destroy();
             header("Location: index.php?action=cliente");
         } elseif ($_GET['action'] == "cliente" && (isset ($_SESSION['logado']) == true)){
             header("Location: index.php?action=minhaConta"); // se ja está logado, redireciona para minhaconta
