@@ -29,7 +29,8 @@ class ClienteDAO
         }
     }
 
-    public function alterar(Cliente $cliente){
+    public function alterar(Cliente $cliente)
+    {
         try {
             $query = $this->conexao->prepare("update cliente set nome = :n, email = :e, telefone = :p, dataNascimento = :dt, senha = :s, endereco = :en, bairro = :ba");
             $query->bindValue(":n", $cliente->getNome());
@@ -41,9 +42,8 @@ class ClienteDAO
             $query->bindValue(":p", $cliente->getTelefone());
 
             return $query->execute();
-
         } catch (PDOException $e) {
-            echo "Erro no acesso aos dados: ". $e->getMessage();
+            echo "Erro no acesso aos dados: " . $e->getMessage();
         }
     }
 
@@ -54,18 +54,24 @@ class ClienteDAO
             $query->bindParam(':e', $email);
             $query->execute();
             $registro = $query->fetchAll(PDO::FETCH_CLASS, "Cliente");
-            // verificacao do e-mail / senha     
-            if ($query->rowCount() == 1) { // email informado existe no BD
-                if (!password_verify($senha, $registro[0]->getSenha())) {
-                    return false; // senha incorreta
-                } else { // email e senha estão corretos
-                    return $registro[0];
+
+            if ($query->rowCount() == 1) {
+                if ($senha == $registro[0]->getSenha()) {
+                    return true;
+                } else {
+                    return false;
                 }
-            } else {
-                return false; // nao encontrou email
             }
         } catch (PDOException $e) {
             echo "Erro no acesso aos dados: " . $e->getMessage();
         }
+    }
+    public function loginAceito($email)
+    {
+        $query = $this->conexao->prepare("select codigo, nome, telefone, senha from cliente where email = :e");
+        $query->bindParam(':e', $email);
+        $query->execute();
+        $registro = $query->fetchAll(PDO::FETCH_CLASS, "Cliente");
+        return $registro;
     }
 }

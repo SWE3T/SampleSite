@@ -1,6 +1,6 @@
 <?php
-session_start();
 include_once("views/layout/header.php");
+session_start();
 ?>
 <main>
     <?php
@@ -22,24 +22,18 @@ include_once("views/layout/header.php");
                     $valido = false;
                     echo '<p style = "text-align: center; color: tomato;">Senha muito pequena!</p>';
                 }
-
                 if ($_POST["password_field"] != $_POST["confirm_password_field"]) {
                     $valido = false;
                     echo '<p style = "text-align: center; color: tomato;">Senhas não conferem!</p>';
                 }
-
                 foreach ($campos as $campo) {
                     if (empty($_POST[$campo])) {
                         $warning = 1;
                         $valido = false;
                     }
                 }
-
                 if ($warning == 1)
                     echo '<p style = "text-align: center; color: tomato;">Campos em branco!</p>';
-
-                //<label for="confirm">Confirme a senha:<input type="password" name="confirm_password_field" size="37" maxlength="45" placeholder="senha" id="confirm"></label>
-
                 if ($valido) {
                     $nome = $_POST['name_field'];
                     $email = $_POST['field_email'];
@@ -69,32 +63,29 @@ include_once("views/layout/header.php");
             }
         } elseif ($_GET['action'] == "login") {
             include_once "classes/ClienteDAO.php";
-            
-
             $bd = new ClienteDAO();
+            $cliente = new Cliente();
             if (isset($_POST['logar'])) {
                 $emailUser = $_POST['field_email'];
                 $senhaUser = $_POST['password_field'];
-                echo "<h2>" . $emailUser . "</h2>";
-                echo "<h2>" . $senhaUser . "</h2>";
-                $resultado = $bd->acessar($emailUser, $senhaUser);
+                $nomeUser = $_POST['field_email'];
                 if ($bd->acessar($emailUser, $senhaUser) == false) {    
-                    echo '<p style = "text-align: center; color: tomato;">Erro na logação da conta!</p>';
                     header("Location: index.php?action=cliente");
+                    echo "<h2>" . $nomeUser . $senhaUser . "</h2>";
+                    echo '<p style = "text-align: center; color: tomato;">Erro no login! Tente novamente!</p>';
                 } else { // casos em que o método acessar retornou algo diferente de false
-                    //echo "<h2>" . $nomes . "</h2>";
-                    echo '<p style = "text-align: center; color: tomato;">Deu certo coroi!</p>';
-                    $_SESSION['logado'] = true;
-                    $_SESSION['cliente'] = $resultado->getNome();
-                    $_SESSION['codigo'] = $resultado->getCodigo();
+                    $cliente = new Cliente();
+                    $cliente = $bd->loginAceito($emailUser);
+                    $_SESSION['logado'] = true; 
+                    $_SESSION['cliente'] = $cliente[0]->getNome();
+                    echo '<p style = "text-align: center; color: tomato;">Login efetuado!</p>';
                     header("Location: index.php?action=minhaConta");
-                }
+              }
             }
         } elseif ($_GET['action'] == "sair") {
-            session_destroy();
             header("Location: index.php?action=cliente");
-        } elseif ($_GET['action'] == "cliente" && isset($_SESSION['logado'])) {
-            header("Location: index.php?action=minhaconta"); // se ja está logado, redireciona para minhaconta
+        } elseif ($_GET['action'] == "cliente" && (isset ($_SESSION['logado']) == true)){
+            header("Location: index.php?action=minhaConta"); // se ja está logado, redireciona para minhaconta
         } elseif ($_GET['action'] == "addCarrinho") {
             include_once("classes/Pizza.php");
             $p = new Pizza();
