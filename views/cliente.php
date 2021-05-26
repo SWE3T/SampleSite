@@ -16,7 +16,7 @@
             <br>
             <br>
             <input type="reset" value="Limpar campos">
-            <input type="submit" value="Acessar">
+            <input type="submit" name="logar" value="Acessar">
         </form>
         <br>
         Ainda não possui uma conta? <a href="index.php?action=cadastro">Crie sua conta!</a>

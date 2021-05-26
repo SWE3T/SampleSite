@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once("views/layout/header.php");
 ?>
 <main>
@@ -40,40 +41,54 @@ include_once("views/layout/header.php");
                 //<label for="confirm">Confirme a senha:<input type="password" name="confirm_password_field" size="37" maxlength="45" placeholder="senha" id="confirm"></label>
 
                 if ($valido) {
-                    $nome = isset($_POST['name_field']);
-                    $email = isset($_POST['field_email']);
-                    $senha = isset($_POST['password_field']);
-                    $adress = isset($_POST['adress_field']);
-                    $bairro = isset($_POST['field_bairro']);
-                    $data = isset($_POST['date_field']);
+                    $nome = $_POST['name_field'];
+                    $email = $_POST['field_email'];
+                    $senha = $_POST['password_field'];
+                    $adress = $_POST['adress_field'];
+                    $bairro = $_POST['field_bairro'];
+                    $telefone = $_POST['phone_field'];
+                    $data = $_POST['date_field'];
 
                     $novo->setNome($nome);
                     $novo->setEmail($email);
                     $novo->setSenha($senha);
                     $novo->setEndereco($adress);
                     $novo->setBairro($bairro);
+                    $novo->setTelefone($telefone);
                     $novo->setDataNascimento($data);
 
                     $bd->cadastrar($novo);
+
+                    $_SESSION['logado'] = true;
+                    $_SESSION['cliente'] = $novo->getNome();
+                    $_SESSION['codigo'] = $novo->getCodigo();
+                    header("Location: index.php?action=minhaConta");
                 } else {
                     echo '<p style = "text-align: center; color: tomato;">Erro na criação da conta!</p>';
                 }
             }
-
-            // else if ((isset($_POST['cadastrar']) && ) {
-            //     include_once("views/cadastro.php");
-            //     echo "Erro na efetuação do cadastro. Atualize a página e tente novamente!";
-            // }
         } elseif ($_GET['action'] == "login") {
             include_once "classes/ClienteDAO.php";
+            
+
             $bd = new ClienteDAO();
-            if ($resultado = $bd->acessar($_POST['field_email'], $_POST['password_field'])) {
-                $_SESSION['logado'] = true;
-                $_SESSION['cliente'] = $resultado->getNome();
-                $_SESSION['codigo'] = $resultado->getCodigo();
-                header("Location: index.php?action=minhaConta");
-            } else { // casos em que o método acessar retornou false
-                header("Location: index.php?action=cliente&erro=1");
+            if (isset($_POST['logar'])) {
+                $emailUser = $_POST['field_email'];
+                $senhaUser = $_POST['password_field'];
+                echo "<h2>" . $emailUser . "</h2>";
+                echo "<h2>" . $senhaUser . "</h2>";
+                $resultado = $bd->acessar($emailUser, $senhaUser);
+                if ($bd->acessar($emailUser, $senhaUser) == false) {    
+                    echo '<p style = "text-align: center; color: tomato;">Erro na logação da conta!</p>';
+                    header("Location: index.php?action=cliente");
+                } else { // casos em que o método acessar retornou algo diferente de false
+                    //echo "<h2>" . $nomes . "</h2>";
+                    echo '<p style = "text-align: center; color: tomato;">Deu certo coroi!</p>';
+                    $_SESSION['logado'] = true;
+                    $_SESSION['cliente'] = $resultado->getNome();
+                    $_SESSION['codigo'] = $resultado->getCodigo();
+                    header("Location: index.php?action=minhaConta");
+                }
             }
         } elseif ($_GET['action'] == "sair") {
             session_destroy();
